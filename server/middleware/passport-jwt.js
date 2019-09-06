@@ -3,7 +3,7 @@ const { ExtractJwt } = require('passport-jwt');
 const mongoose = require('mongoose');
 
 // Load User model
-const User = mongoose.model('User');
+const User = mongoose.model('Userok');
 
 module.exports = function(passport) {
   const opts = {};

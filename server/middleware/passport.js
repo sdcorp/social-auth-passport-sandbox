@@ -2,7 +2,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 
 // Load User model
-const User = mongoose.model('User');
+const User = mongoose.model('Userok');
 
 module.exports = function(passport) {
   passport.use(

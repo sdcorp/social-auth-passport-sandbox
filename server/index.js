@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Switching beetween local and development(for public repo) enviroment
-require('custom-env').env('development');
+require('custom-env').env('local');
 
 // Connect to our Database and handle any bad connections
 mongoose.connect(process.env.DATABASE, {
@@ -14,7 +14,7 @@ mongoose.connection.on('error', err => console.error(`🙅  🚫   🙅  🚫   
 
 // import of all our model
 require('./models/Test');
-require('./models/User');
+require('./models/Userok');
 
 // Start our app!
 const app = require('./app');

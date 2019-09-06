@@ -11,10 +11,6 @@ const authRoutes = require('./routes/authRoutes');
 //  Init app
 const app = express();
 
-// Passport Config
-require('./middleware/passport')(passport);
-require('./middleware/passport-jwt')(passport);
-
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
@@ -31,6 +27,12 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Passport Config
+require('./middleware/passport')(passport);
+require('./middleware/passport-jwt')(passport);
+require('./middleware/passport-google')(passport);
+require('./middleware/passport-fb')(passport);
 
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/api/v1/auth', authRoutes);

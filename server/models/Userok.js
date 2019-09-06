@@ -9,20 +9,26 @@ const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      unique: true,
+      // unique: true,
       lowercase: true,
       trim: true,
-      required: true,
+      // required: true,
     },
     password: {
       type: String,
-      required: true,
+      // required: true,
+    },
+    googleData: {
+      type: Object,
+    },
+    facebookData: {
+      type: Object,
     },
   },
   { timestamps: true }
 );
 
-userSchema.plugin(mongodbErrorHandler);
+// userSchema.plugin(mongodbErrorHandler);
 
 userSchema.statics.findUserByEmail = function(email) {
   return this.findOne({ email });
@@ -49,4 +55,4 @@ userSchema.methods.toAuthJSON = function() {
   };
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Userok', userSchema);

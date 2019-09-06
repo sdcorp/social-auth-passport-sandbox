@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const HttpError = require('http-errors');
 
-const User = mongoose.model('User');
+const User = mongoose.model('Userok');
 const { catchExpressValidatorErrors } = require('../helpers/customValidators');
 
 exports.register = async (req, res) => {
